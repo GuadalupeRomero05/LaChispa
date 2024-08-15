@@ -1,4 +1,4 @@
-export function login () {
+const login = () => {
     return(
         <Selection>
             <text>Inicio de sesión</text>
@@ -10,3 +10,4 @@ export function login () {
         </Selection>
     )
 }
+export default login; 
