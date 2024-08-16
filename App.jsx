@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 //import Login from "./src/componentes" ;
-import calendario from './src/componentes/calendario';
+import {Calendario} from './src/componentes/calendario';
+
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>hol</Text>
-      <div className='container'>
-      <login /></div>
+      <Calendario/>
       <StatusBar style="auto" />
     </View>
   );

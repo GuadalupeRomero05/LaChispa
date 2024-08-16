@@ -1,18 +1,12 @@
-import React, {useState} from 'react';
-import {Calendar, LocaleConfig} from 'react-native-calendars';
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
 
 const calendario = () => {
-  const [selected, setSelected] = useState('');
+  const [value, onChange] = useState(new Date());
 
-  return (
-    <Calendar
-      onDayPress={day => {
-        setSelected(day.dateString);
-      }}
-      markedDates={{
-        [selected]: {selected: true, disableTouchEvent: true, selectedDotColor: 'orange'}
-      }}
-    />
+  return   
+ (
+    <Calendar onChange={onChange} value={value} />
   );
 };
 
