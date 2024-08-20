@@ -1,15 +1,22 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import React from 'react';
+import { StyleSheet, View, ImageBackground, Image } from 'react-native';
 
-export default function Login (){
-    return(
+export default function Login() {
+  return (
+    <View>
         <view>
-            
-            <view>
-                
-            </view>
-
-        </view>
-    );
+      <ImageBackground
+        source={require('../assets/fondo.jpg')} style={styles.backgroundImage}>
+      </ImageBackground>
+      </view>
+    </View>
+  );
 }
-const styles = StyleSheet.create({});
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    position: 'absolute',
+  },
+});
