@@ -19,11 +19,11 @@ export default function Login() {
         </View>
 
         <View style={styles.cajaTexto}>
-          <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15 }} />
+          <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15 }} secureTextEntry={true} />
         </View>
-        {/*<view>
-        <TouchableOpacity style={styles.boton}>
-          <Text>Iniciar sesión</Text>
+        {/*<view style={styles.Boton}>
+        <TouchableOpacity style={styles.cajaBoton}>
+          <Text style={styles.textoBoton}>Iniciar sesión</Text>
         </TouchableOpacity>
         </view>*/}
 
