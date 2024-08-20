@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Image } from 'react-native';
+import { Text, StyleSheet, View, ImageBackground, Image, TextInput, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default function Login() {
   return (
@@ -9,6 +10,21 @@ export default function Login() {
             source={require('../assets/fondo.jpg')} style={styles.backgroundImage}>
         </ImageBackground>
       </view>*/}
+      <view style={styles.formulario}>
+        <view style={styles.cajaTexto}>
+            <TextInput placeholder='correo@gmail.com' style={{paddingHorizontal:15}}/>
+        </view>
+
+        <view style={styles.cajaTexto}>
+        <TextInput placeholder='Contraseña' style={{paddingHorizontal:15}}/>
+        </view>
+
+        <view>
+            <TouchableOpacity>
+                <text>Iniciar sesion</text>
+            </TouchableOpacity>
+        </view>
+      </view>
     </View>
   );
 }
