@@ -1,32 +1,51 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 
+/*import appFirebase from '../firebase'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+const auth = getAuth(appFirebase)
 
-export default function Login() {
+*/export default function Login(/*props*/) {
+
+/*  //creamos la variable de estado
+  const [email, setEmail] = useState()
+  const [contraseña, setContraseña] = useState()
+
+  const logueo = async()=>{
+    try {
+      await signInWithEmailAndPassword(auth, email, contraseña)
+      props.navigation.navigate('Home')
+    } catch (error) {
+      console.log(error);
+    }
+  }*/
   return (
     <View style={styles.fondo}>
-      {/* Uncomment these if you want a background image */}
-      {/* <view>
-        <ImageBackground
-          source={require('../assets/fondo.jpg')}
-          style={styles.backgroundImage}
+      <View>
+        <Image
+          source={require('../assets/logo.png')}
+          style={styles.Image}
         >
-        </ImageBackground>
-      </view>*/}
+        </Image>
+      </View>
       <View style={styles.formulario}>
         <View style={styles.cajaTexto}>
-          <TextInput placeholder='correo@gmail.com' style={{ paddingHorizontal: 15 }} />
-        </View>
+          < TextInput placeholder='correo@gmail.com' style={{ paddingHorizontal: 15, outline: 0 }} 
+          /*onChangeText={(text)=>setEmail(text)}*//>
+      </View>
 
         <View style={styles.cajaTexto}>
-          <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15 }} secureTextEntry={true} />
+          <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15,  outline: 0 }} 
+          /*onChangeText={(text)=>setContraseña(text)}*/ secureTextEntry={true} 
+          />
         </View>
-        {/*<view style={styles.Boton}>
-        <TouchableOpacity style={styles.cajaBoton}>
-          <Text style={styles.textoBoton}>Iniciar sesión</Text>
-        </TouchableOpacity>
-        </view>*/}
-
+        <View style={styles.Boton}>
+          <TouchableOpacity style={styles.cajaBoton} /*onPress={logueo}*/>
+            <text style={styles.textoBoton}>
+              Iniciar sesion
+            </text>
+          </TouchableOpacity>
+        </View>
         {/* ... */}
       </View>
     </View>
@@ -39,16 +58,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backgroundImage: {
+  Image: {
     flex: 1,
-    resizeMode: 'cover',
-    position: 'absolute',
+    width:250,
+    height:250,
+    borderRadius: 350,
+    borderColor: 'white',
   },
   formulario: {
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    width: '50%',
+    width: '45%',
     padding: 20,
     shadowColor: '#000',
     shadowOffset: {
@@ -66,7 +87,6 @@ const styles = StyleSheet.create({
     backgroundColor:'#cccccc40',
     borderRadius:30,
     marginVertical:10
-
   },
   Boton: {
     alignItems: 'center'
