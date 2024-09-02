@@ -53,13 +53,12 @@ export default function Login(props) {
   );
 }
 
-
 const styles = StyleSheet.create({
   fondo: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#f0f8ff',
+    backgroundColor:'#ffc0cb',
   },
   Image: {
     flex: 1,
