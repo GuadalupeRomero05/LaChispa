@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 
-/*import appFirebase from '../firebase'
+import appFirebase from '../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const auth = getAuth(appFirebase)
 
-*/export default function Login(/*props*/) {
+export default function Login(props) {
 
-/*  //creamos la variable de estado
+ //creamos la variable de estado
   const [email, setEmail] = useState()
   const [contraseña, setContraseña] = useState()
 
@@ -17,8 +17,9 @@ const auth = getAuth(appFirebase)
       props.navigation.navigate('Home')
     } catch (error) {
       console.log(error);
+      Alert.alert ('Error', 'Usuario o contraseña incorrectos')
     }
-  }*/
+  }
   return (
     <View style={styles.fondo}>
       <View>
@@ -31,16 +32,16 @@ const auth = getAuth(appFirebase)
       <View style={styles.formulario}>
         <View style={styles.cajaTexto}>
           < TextInput placeholder='correo@gmail.com' style={{ paddingHorizontal: 15, outline: 0 }} 
-          /*onChangeText={(text)=>setEmail(text)}*//>
+          onChangeText={(text)=>setEmail(text)}/>
       </View>
 
         <View style={styles.cajaTexto}>
           <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15,  outline: 0 }} 
-          /*onChangeText={(text)=>setContraseña(text)}*/ secureTextEntry={true} 
+          onChangeText={(text)=>setContraseña(text)} secureTextEntry={true} 
           />
         </View>
         <View style={styles.Boton}>
-          <TouchableOpacity style={styles.cajaBoton} /*onPress={logueo}*/>
+          <TouchableOpacity style={styles.cajaBoton} onPress={logueo}>
             <text style={styles.textoBoton}>
               Iniciar sesion
             </text>
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#f0f8ff',
   },
   Image: {
     flex: 1,
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   cajaBoton: {
-    backgroundColor: '#525FE1',
+    backgroundColor: '#5f9ea0',
     borderRadius:30,
     paddingVertical:20,
     width:150,

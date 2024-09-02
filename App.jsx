@@ -19,7 +19,7 @@ function MyStack() {
         headerTitleAlign:'center',
         title: "INICIO DE SESION",
         headerTintColor: "white",
-        headerStyle: {backgroundColor:"#525FE1"}
+        headerStyle: {backgroundColor:"#5f9ea0"}
       }
     }/>
       <Stack.Screen name="Home" component={Home} />
