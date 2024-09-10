@@ -1,37 +1,27 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { Stack } from "expo-router";
+import { useState } from "react";
+import { CreateSchoolContext } from '../context/CreateSchoolContext';
+import { useFonts } from "expo-font";
+import { ActivityIndicator } from "react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  const [fontsLoaded] = useFonts({
+    'outfit-Bold': require('./../assets/fonts/Outfit-Bold.ttf'),
+    'outfit-Medium': require('./../assets/fonts/Outfit-Medium.ttf'),
+    'outfit': require('./../assets/fonts/Outfit-Light.ttf'),
   });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
+  if (!fontsLoaded) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
   }
 
+  const [schoolData, setSchoolData] = useState<any[]>([]);
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+    <CreateSchoolContext.Provider value={{ schoolData, setSchoolData }}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
       </Stack>
-    </ThemeProvider>
+    </CreateSchoolContext.Provider>
   );
 }
