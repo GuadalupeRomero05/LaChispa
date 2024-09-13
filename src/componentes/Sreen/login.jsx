@@ -14,7 +14,13 @@ export default function Login(props) {
   const logueo = async()=>{
     try {
       await signInWithEmailAndPassword(auth, email, contraseña)
-      props.navigation.navigate('Home')
+
+      if (email === 'directivos@gmail.com'){
+        props.navigation.navigate('directivos')
+      }else{
+        if (email === 'preceptores@gmail.com')
+          props.navigation.navigate('preceptores')
+      }
     } catch (error) {
       console.log(error);
       Alert.alert ('Error', 'Usuario o contraseña incorrectos')
@@ -53,12 +59,13 @@ export default function Login(props) {
   );
 }
 
+
 const styles = StyleSheet.create({
   fondo: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#ffc0cb',
+    backgroundColor:'#f0f8ff',
   },
   Image: {
     flex: 1,

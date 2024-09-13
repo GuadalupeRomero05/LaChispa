@@ -1,25 +1,39 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 
-import appFirebase from '../firebase'
+import appFirebase from '../firebase'; // configuración de Firebase 
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-const auth = getAuth(appFirebase)
+const auth = getAuth(appFirebase);
 
-export default function Login(props) {
+export default function Login(props)   {
+  const [email, setEmail] = useState('');
+  const [contraseña, setContraseña] = useState('');
 
- //creamos la variable de estado
-  const [email, setEmail] = useState()
-  const [contraseña, setContraseña] = useState()
-
-  const logueo = async()=>{
+  const logueo = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, contraseña)
-      props.navigation.navigate('Home')
+      const userCredential = await signInWithEmailAndPassword(auth, email, contraseña);
+      const user = userCredential.user;
+
+      // Obtener los custom claims del usuario 
+      const customClaims = user.customClaims;
+      if (customClaims && customClaims.role) {
+        const { role } = customClaims;
+        // Redirigir a la pantalla correspondiente según el rol
+        if (role === 'admin') {
+          props.navigation.navigate('AdminHome');
+        } else {
+          props.navigation.navigate('Home');
+        }
+      } else {
+        // Si no hay custom claims o no tiene el campo 'role', manejar el caso por defecto
+        console.warn('El usuario no tiene un rol asignado');
+        //props.navigation.navigate('Home'); // O redirige a una pantalla de error
+      }
     } catch (error) {
-      console.log(error);
-      Alert.alert ('Error', 'Usuario o contraseña incorrectos')
+      console.error('Error al iniciar sesión:', error);
+      Alert.alert('Error', 'Usuario o contraseña incorrectos');
     }
-  }
+  };
   return (
     <View style={styles.fondo}>
       <View>

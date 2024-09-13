@@ -3,8 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Login from './Sreen/login';
-import Home from './Sreen/home';
+import Login from './src/componentes/Sreen/login';
+import directivos from './src/componentes/Sreen/directivos';
+import preceptores from './src/componentes/Sreen/preceptores';
 
 
 export default function App() {
@@ -22,7 +23,8 @@ function MyStack() {
         headerStyle: {backgroundColor:"#5f9ea0"}
       }
     }/>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="directivos" component={directivos} />
+      <Stack.Screen name="preceptores" component={preceptores} />
     </Stack.Navigator>
   );
 }
