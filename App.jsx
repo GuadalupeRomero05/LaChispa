@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Login from './src/componentes/Sreen/login';
-import directivos from './src/componentes/Sreen/directivos';
-import preceptores from './src/componentes/Sreen/preceptores';
+import login from './Sreen/login';
+import directivos from './Sreen/directivos';
+import preceptores from './Sreen/preceptores';
 
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login}
+      <Stack.Screen name="login" component={login}
       options={{
         headerTitleAlign:'center',
         title: "INICIO DE SESION",

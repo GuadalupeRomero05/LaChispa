@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 
 import appFirebase from '../firebase'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from '../firebase'
 const auth = getAuth(appFirebase)
 
-export default function Login(props) {
+export default function login(props) {
 
  //creamos la variable de estado
   const [email, setEmail] = useState()
@@ -14,7 +14,7 @@ export default function Login(props) {
   const logueo = async()=>{
     try {
       await signInWithEmailAndPassword(auth, email, contraseña)
-
+      //funcion de roles
       if (email === 'directivos@gmail.com'){
         props.navigation.navigate('directivos')
       }else{
@@ -35,17 +35,19 @@ export default function Login(props) {
         >
         </Image>
       </View>
+      
       <View style={styles.formulario}>
         <View style={styles.cajaTexto}>
           < TextInput placeholder='correo@gmail.com' style={{ paddingHorizontal: 15, outline: 0 }} 
           onChangeText={(text)=>setEmail(text)}/>
       </View>
-
+        
         <View style={styles.cajaTexto}>
           <TextInput placeholder='Contraseña' style={{ paddingHorizontal: 15,  outline: 0 }} 
           onChangeText={(text)=>setContraseña(text)} secureTextEntry={true} 
           />
         </View>
+        
         <View style={styles.Boton}>
           <TouchableOpacity style={styles.cajaBoton} onPress={logueo}>
             <text style={styles.textoBoton}>
@@ -59,7 +61,7 @@ export default function Login(props) {
   );
 }
 
-
+/*Estilos*/
 const styles = StyleSheet.create({
   fondo: {
     flex: 1,
