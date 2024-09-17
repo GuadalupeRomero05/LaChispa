@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
-
+import React, {useState} from 'react';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Alert, Text } from 'react-native';
 import appFirebase from '../firebase'
-import { getAuth, signInWithEmailAndPassword } from '../firebase'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
 const auth = getAuth(appFirebase)
 
-export default function login(props) {
+export default function Login(props) {
 
  //creamos la variable de estado
   const [email, setEmail] = useState()
@@ -14,16 +14,9 @@ export default function login(props) {
   const logueo = async()=>{
     try {
       await signInWithEmailAndPassword(auth, email, contraseña)
-      //funcion de roles
-      if (email === 'directivos@gmail.com'){
-        props.navigation.navigate('directivos')
-      }else{
-        if (email === 'preceptores@gmail.com')
-          props.navigation.navigate('preceptores')
-      }
+      props.navigation.navigate('Preceptores')
     } catch (error) {
       console.log(error);
-      Alert.alert ('Error', 'Usuario o contraseña incorrectos')
     }
   }
   return (
@@ -50,9 +43,9 @@ export default function login(props) {
         
         <View style={styles.Boton}>
           <TouchableOpacity style={styles.cajaBoton} onPress={logueo}>
-            <text style={styles.textoBoton}>
+            <Text style={styles.textoBoton}>
               Iniciar sesion
-            </text>
+            </Text>
           </TouchableOpacity>
         </View>
         {/* ... */}
