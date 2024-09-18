@@ -6,7 +6,9 @@ import { CreateSchoolContext } from './../context/CreateSchoolContext';
 import { SelectCursosList } from './../constants/Options';
 import OptionCard from './../components/CreateSchool/OptionCard';
 import { Colors } from '@/constants/Colors';
-import { Menu, Provider, Divider, Portal } from 'react-native-paper';
+import { Menu, Provider, Divider } from 'react-native-paper';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/config/FirebaseConfig';
 
 interface Option {
   id: number;
@@ -18,6 +20,7 @@ interface Option {
 export default function MyInicio() {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const [menuVisible, setMenuVisible] = useState(false);
+  const [userMenuVisible, setUserMenuVisible] = useState(false);
   const { width } = Dimensions.get('window');
   const isSmallScreen = width < 600;
 
@@ -28,8 +31,16 @@ export default function MyInicio() {
   }
 
   const { schoolData, setSchoolData } = context;
-
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Obtener el email del usuario logueado
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      setUserEmail(currentUser.email);
+    }
+  }, []);
 
   useEffect(() => {
     if (selectedOption) {
@@ -41,54 +52,72 @@ export default function MyInicio() {
   }, [selectedOption]);
 
   const toggleMenu = () => setMenuVisible(!menuVisible);
-
-  // Maneja el evento de presionar "back"
-  const handleBackPress = () => {
-    if (navigation.canGoBack()) {
-      navigation.goBack();
-    } else {
-      navigation.navigate('index'); // Asegúrate de que 'Home' es una ruta válida en tu Navigator
-    }
-  };
+  const toggleUserMenu = () => setUserMenuVisible(!userMenuVisible);
 
   const handleContinue = () => {
-    navigation.navigate('select-dates'); // Asegúrate de que 'SelectDates' es una ruta válida en tu Navigator
+    navigation.navigate('select-dates');
+  };
+
+  const handleSignup = () => {
+    navigation.navigate('signup');
+  };
+const handleCursos = () => {
+  navigation.navigate('Cursos');
+}
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      console.log('Sesión cerrada');
+      navigation.navigate('index'); // Cambia 'index' por el nombre de la pantalla de inicio de sesión en tu configuración de navegación
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   };
 
   return (
     <Provider>
       <View style={styles.container}>
+        {/* Header con íconos alineados */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={handleBackPress} style={styles.iconButton}>
-            <AntDesign name="back" size={24} color="black" />
-          </TouchableOpacity>
+          <View style={styles.rightIcons}>
+            {/* Menú de configuración */}
+            <Menu
+              visible={menuVisible}
+              onDismiss={toggleMenu}
+              anchor={
+                <TouchableOpacity onPress={toggleMenu} style={styles.iconButton}>
+                  <AntDesign name="setting" size={24} color="black" />
+                </TouchableOpacity>
+              }
+            >
+              <Menu.Item onPress={handleSignup} title="Registrar" />
+              <Divider />
+              <Menu.Item onPress={handleCursos} title="Crear Cursos" />
+              <Divider/>
+              <Menu.Item onPress={handleSignOut} title="Cerrar sesión" />
+            </Menu>
 
-          <View style={styles.iconContainer}>
-            <TouchableOpacity onPress={() => console.log('User Pressed')} style={styles.iconButton}>
-              <AntDesign name="user" size={24} color="black" />
-            </TouchableOpacity>
-
-            <Portal>
-              <Menu
-                visible={menuVisible}
-                onDismiss={toggleMenu}
-                anchor={
-                  <TouchableOpacity onPress={toggleMenu} style={styles.iconButton}>
-                    <AntDesign name="setting" size={24} color="black" />
-                  </TouchableOpacity>
-                }
-              >
-                <Menu.Item onPress={() => console.log('Opción 1 seleccionada')} title="Opción 1" />
-                <Menu.Item onPress={() => console.log('Opción 2 seleccionada')} title="Opción 2" />
-                <Divider />
-                <Menu.Item onPress={() => console.log('Cerrar sesión')} title="Cerrar sesión" />
-              </Menu>
-            </Portal>
+            {/* Menú de usuario */}
+            <Menu
+              visible={userMenuVisible}
+              onDismiss={toggleUserMenu}
+              anchor={
+                <TouchableOpacity onPress={toggleUserMenu} style={styles.iconButton}>
+                  <AntDesign name="user" size={24} color="black" />
+                </TouchableOpacity>
+              }
+            >
+              <Menu.Item title={userEmail ? `Usuario: ${userEmail}` : 'Cargando usuario...'} />
+            </Menu>
           </View>
         </View>
 
+        {/* Título */}
         <Text style={[styles.title, { fontSize: isSmallScreen ? 24 : 32 }]}>Años</Text>
+        {/* subTitulo */}
+        <Text style={[styles.subtitle, { fontSize: isSmallScreen ? 24 : 32 }]}>Administrador</Text>
 
+        {/* Lista de opciones */}
         <FlatList
           data={SelectCursosList}
           renderItem={({ item }) => (
@@ -99,6 +128,7 @@ export default function MyInicio() {
           keyExtractor={(item) => item.id.toString()}
         />
 
+        {/* Botón de continuar */}
         <TouchableOpacity onPress={handleContinue} style={styles.continueButton}>
           <Text style={styles.continueButtonText}>Continuar</Text>
         </TouchableOpacity>
@@ -116,19 +146,27 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     marginBottom: 20,
   },
-  iconContainer: {
+  rightIcons: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   iconButton: {
-    marginRight: 20,
+    marginLeft: 20,
   },
   title: {
     fontFamily: 'outfit-Bold',
     marginBottom: 20,
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontFamily: 'outfit',
+    fontSize: 8,
+    marginBottom: 12,
     textAlign: 'center',
   },
   optionButton: {
@@ -140,6 +178,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     maxWidth: '90%',
     width: 300,
+    backgroundColor: '#f0f0f0',
   },
   continueButton: {
     paddingVertical: 10,

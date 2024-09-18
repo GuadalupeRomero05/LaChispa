@@ -20,7 +20,7 @@ export default function RootLayout() {
   return (
     <CreateSchoolContext.Provider value={{ schoolData, setSchoolData }}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
+        <Stack.Screen name="App" />
       </Stack>
     </CreateSchoolContext.Provider>
   );

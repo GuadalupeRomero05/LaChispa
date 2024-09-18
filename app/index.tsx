@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, TextInput, View, Alert, ToastAndroid, Dimensions, Image, TouchableOpacity } from "react-native";
 import { auth } from './../config/FirebaseConfig'; // Asegúrate de ajustar la ruta si es necesario
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore"; // Importamos Firestore para obtener el rol
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 
@@ -10,7 +11,8 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Obtener dimensiones de la pantalla
+  const firestore = getFirestore(); // Inicializamos Firestore
+
   const { width } = Dimensions.get('window');
   const isSmallScreen = width < 600;
 
@@ -21,11 +23,28 @@ export default function Index() {
     }
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Inicio de Sesión Exitoso
+      .then(async (userCredential) => {
         const user = userCredential.user;
-        router.replace('/myInicio');
-        console.log(user);
+
+        // Obtener rol del usuario desde Firestore
+        const docRef = doc(firestore, `usuarios/${user.uid}`);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          const rol = userData.rol;
+
+          // Redirigir según el rol
+          if (rol === '1') {
+            router.replace('/myInicio'); // Página de administrador
+          } else if (rol === '2') {
+             router.replace('/ProfesorInicio'); // Página de profesor
+          // } else if (rol === '3') {
+          //   router.replace('/alumnoInicio'); // Página de alumno
+          }
+        } else {
+          console.log("No se encontró el documento del usuario");
+        }
       })
       .catch((error) => {
         const errorMessage = error.message;
