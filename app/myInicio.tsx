@@ -140,7 +140,7 @@ const handleCursos = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff',
     paddingTop: 50,
     paddingHorizontal: 20,
   },

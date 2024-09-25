@@ -10,9 +10,30 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Index" component={Index} />
-                <Stack.Screen name="MyInicio" component={MyInicio} />
-                <Stack.Screen name="ProfesorInicio" component={ProfesorInicio} />
+                <Stack.Screen name="Index" component={Index} 
+                options={{
+                headerTitleAlign:'center',
+                title: "INICIO DE SESION",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
+                <Stack.Screen name="MyInicio" component={MyInicio} 
+                options={{
+                headerTitleAlign:'center',
+                title: "Directivos",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
+                <Stack.Screen name="ProfesorInicio" component={ProfesorInicio} 
+                options={{
+                headerTitleAlign:'center',
+                title: "Profesor",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
             </Stack.Navigator>
         </NavigationContainer>
     );

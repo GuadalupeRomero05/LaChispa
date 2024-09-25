@@ -19,36 +19,36 @@ export default function OptionCard({ option, selectedOption }) {
 
 const styles = StyleSheet.create({
     card: {
-        padding: 12, // Reduced padding for smaller cards
+        padding: 12, 
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: Colors.LIGHT_GRAY,
-        borderRadius: 10, // Reduced border radius
-        margin: 6, // Reduced margin for smaller cards
-        elevation: 2, // Slight shadow for visual separation on Android
-        shadowColor: '#000', // Adds shadow color for iOS
-        shadowOffset: { width: 0, height: 1 }, // Reduced shadow offset for iOS
-        shadowOpacity: 0.2, // Adjusted shadow opacity for iOS
-        shadowRadius: 2, // Reduced shadow radius for iOS
+        borderRadius: 10, 
+        margin: 6, 
+        elevation: 2, 
+        shadowColor: '#000', 
+        shadowOffset: { width: 0, height: 1 }, 
+        shadowOpacity: 0.2, 
+        shadowRadius: 2, 
         justifyContent: 'center'
     },
     selectedCard: {
-        borderWidth: 1.5, // Reduced border width
-        borderColor: Colors.PRIMARY, // Adjust border color to match your theme
+        borderWidth: 1.5, 
+        borderColor: Colors.PRIMARY, 
     },
     title: {
         fontFamily: 'outfit-Bold',
-        fontSize: 14, // Further reduced font size for smaller cards
-        color: Colors.BLACK, // Added color for text
+        fontSize: 14, 
+        color: Colors.BLACK, 
     },
     description: {
         fontFamily: 'outfit-Bold',
-        fontSize: 12, // Further reduced font size for smaller cards
+        fontSize: 12, 
         color: Colors.GREY,
     },
     icon: {
         fontFamily: 'outfit-Bold',
-        fontSize: 12, // Further reduced font size for smaller cards
+        fontSize: 12, 
         color: Colors.GREY,
     },
 });

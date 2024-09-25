@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     mainContainer: {
         padding: 25,
         paddingTop: 75,
-        backgroundColor: Colors.WHITE,
+        backgroundColor: '#f0f8ff',
         height: '100%',
     },
     container: {

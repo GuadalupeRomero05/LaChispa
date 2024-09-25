@@ -58,26 +58,27 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#fff",
+        backgroundColor: "#f0f8ff",
         padding: isSmallScreen ? 16 : 32,
       }}
     >
       <Text style={{ fontSize: isSmallScreen ? 24 : 32, marginBottom: isSmallScreen ? 16 : 24 }}>
-        LaChispaApp
       </Text>
 
       <Image
-        source={require('./../assets/images/lc.png')}
+        source={require('./../assets/images/logo.png')}
         style={{
-          width: isSmallScreen ? '90%' : '60%',
-          height: isSmallScreen ? 150 : 200,
+          flex: 1,
+          borderRadius: 2800,
+          borderColor: 'white',
+          width: 400,
+          height: 400,
           resizeMode: 'contain',
           marginBottom: isSmallScreen ? 16 : 24,
         }}
       />
 
       <Text style={{ fontSize: isSmallScreen ? 18 : 24, marginBottom: isSmallScreen ? 16 : 20 }}>
-        Vamos a Loguearnos
       </Text>
 
       <TextInput
@@ -115,7 +116,7 @@ export default function Index() {
         style={{
           paddingVertical: 12,
           paddingHorizontal: 32,
-          backgroundColor: Colors.PRIMARY,
+          backgroundColor: '#5f9ea0',
           borderRadius: 15,
           marginTop: 20,
         }}

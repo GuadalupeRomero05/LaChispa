@@ -42,7 +42,7 @@ const Signup = () => {
 
     return (
         <View style={styles(isSmallScreen).mainContainer}>
-            <Text style={styles(isSmallScreen).title}>Registra Usuario</Text>
+            <Text style={styles(isSmallScreen).title}>Registrar Usuario</Text>
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
@@ -66,6 +66,7 @@ const Signup = () => {
                 <Picker.Item label="Administrador" value="1" />
                 <Picker.Item label="Profesor" value="2" />
                 <Picker.Item label="Alumno" value="3" />
+                <Picker.Item label="Preceptor" value="4" />
             </Picker>
             {error ? <Text style={styles(isSmallScreen).error}>{error}</Text> : null}
             <TouchableOpacity
@@ -83,7 +84,7 @@ const styles = (isSmallScreen: boolean) => StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#fff",
+        backgroundColor: "#f0f8ff",
         padding: isSmallScreen ? 16 : 32,
     },
     title: {
