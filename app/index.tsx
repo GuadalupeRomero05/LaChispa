@@ -69,10 +69,10 @@ export default function Index() {
         source={require('./../assets/images/logo.png')}
         style={{
           flex: 1,
-          borderRadius: 2800,
           borderColor: 'white',
-          width: 400,
-          height: 400,
+          width: isSmallScreen ? 100 : 200, // Ajusta el tamaño según la pantalla
+          height: isSmallScreen ? 100 : 200, // Ajusta el tamaño según la pantalla
+          borderRadius: (isSmallScreen ? 100 : 200) / 2, // Radio del círculo perfecto
           resizeMode: 'contain',
           marginBottom: isSmallScreen ? 16 : 24,
         }}
