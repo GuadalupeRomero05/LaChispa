@@ -42,7 +42,7 @@ const Signup = () => {
 
     return (
         <View style={styles(isSmallScreen).mainContainer}>
-            <Text style={styles(isSmallScreen).title}>Registrar Usuario</Text>
+            <Text style={styles(isSmallScreen).title}>Registrar un nuevo usuario</Text>
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
@@ -57,7 +57,7 @@ const Signup = () => {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            <Text style={styles(isSmallScreen).label}>Selecciona el Perfil</Text>
+            <Text style={styles(isSmallScreen).label}>Seleccione que tipo de usuario desea registrar</Text>
             <Picker
                 selectedValue={rol}
                 style={styles(isSmallScreen).input}
@@ -73,7 +73,7 @@ const Signup = () => {
                 style={styles(isSmallScreen).button}
                 onPress={submitHandler}
             >
-                <Text style={styles(isSmallScreen).buttonText}>Registro</Text>
+                <Text style={styles(isSmallScreen).buttonText}>Registrar</Text>
             </TouchableOpacity>
         </View>
     );
