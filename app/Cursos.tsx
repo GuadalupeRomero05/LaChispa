@@ -88,7 +88,7 @@ const styles = (isSmallScreen: boolean) =>
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#fff",
+            backgroundColor: "#f0f8ff",
             padding: isSmallScreen ? 16 : 32,
         },
         title: {
