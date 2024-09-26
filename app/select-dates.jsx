@@ -15,9 +15,9 @@ export default function Fecha() {
 
     return (
         <View style={styles.mainContainer}>
-           <TouchableOpacity style={styles.backButton}onPress={() => NavigationPreloadManager.goBack()}>
-            <AntDesign name="back" size={24} color="black"/>
-            </TouchableOpacity> 
+           {/*<TouchableOpacity style={styles(isSmallScreen).backButton} onPress={() => navigation.goBack()}>
+                <AntDesign name="back" size={24} color="black" />
+            </TouchableOpacity>*/} 
             <View style={styles.container}>
                 <Text style={styles.header}>Calendario</Text>
                 <CalendarPicker onDateChange={onDateChange} />
@@ -37,11 +37,11 @@ export default function Fecha() {
         backgroundColor: '#f0f8ff',
         height: '100%',
     },
-    backButton:{
+    backButton: {
         position: "absolute",
-        left: 20, //coloca el boton a la izquierda
+        left: 20, // Coloca el botón a la izquierda
         top: 16,
-        zIndex: 1,
+        zIndex: 1, // Asegúrate de que el botón esté en la parte superior
     },
     container: {
         flex: 1,
