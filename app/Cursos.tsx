@@ -130,7 +130,7 @@ const styles = (isSmallScreen: boolean) =>
             marginTop: 20,
         },
         buttonText: {
-            color: "#fff",
+            color: "pink",
             fontSize: 16,
         },
         error: {
