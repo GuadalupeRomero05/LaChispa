@@ -114,8 +114,7 @@ const handleCursos = () => {
 
         {/* Título */}
         <Text style={[styles.title, { fontSize: isSmallScreen ? 24 : 32 }]}>Años</Text>
-        {/* subTitulo */}
-        <Text style={[styles.subtitle, { fontSize: isSmallScreen ? 24 : 32 }]}>Administrador</Text>
+      
 
         {/* Lista de opciones */}
         <FlatList
