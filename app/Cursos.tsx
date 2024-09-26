@@ -3,16 +3,25 @@ import { Text, View, StyleSheet, Dimensions, TouchableOpacity, Alert } from 'rea
 import { Picker } from '@react-native-picker/picker'; // Asegúrate de instalar @react-native-picker/picker
 import { Colors } from '@/constants/Colors';
 import { SelectCursosList, SelectTipoCurso } from './../constants/Options';
-import { TextInput } from 'react-native-paper';
 import { getFirestore } from 'firebase/firestore';
 const firestore = getFirestore();
 const { width } = Dimensions.get('window');
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { RootStackParamList } from './types.js'; // Importa el tipo que definimos anteriormente
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+
 const isSmallScreen = width < 600;
+
+// Definir el tipo de navegación para esta pantalla
+type SignupScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Signup'>;
 
 export default function Cursos() {
     const [selectedYear, setSelectedYear] = useState<string | null>(null);
     const [selectedTipoCurso, setSelectedTipoCurso] = useState<string | null>(null);
     const [courseName, setCourseName] = useState<string>('');
+
+    const navigation = useNavigation<SignupScreenNavigationProp>(); // Usa el tipo de navegación adecuado
 
     // Función para manejar el botón "Agregar"
     const handleContinue = async () => {
@@ -41,15 +50,12 @@ export default function Cursos() {
 
     return (
         <View style={styles(isSmallScreen).mainContainer}>
+            <TouchableOpacity style={styles(isSmallScreen).backButton} onPress={() => navigation.goBack()}>
+                <AntDesign name="back" size={24} color="black" />
+            </TouchableOpacity>
             <Text style={{ fontSize: isSmallScreen ? 23 : 32, marginBottom: isSmallScreen ? 16 : 24 }}>
-                Carga de Cursos
+                Cargar Curso
             </Text>
-            <TextInput
-                style={styles(isSmallScreen).input}
-                placeholder='Nombre del Curso'
-                value={courseName}
-                onChangeText={setCourseName}
-            />
 
             {/* Selector de Año */}
             <Picker
@@ -90,6 +96,12 @@ const styles = (isSmallScreen: boolean) =>
             alignItems: "center",
             backgroundColor: "#f0f8ff",
             padding: isSmallScreen ? 16 : 32,
+        },
+        backButton: {
+            position: "absolute",
+            left: 20, // Coloca el botón a la izquierda
+            top: 16,
+            zIndex: 1, // Asegúrate de que el botón esté en la parte superior
         },
         title: {
             fontFamily: 'outfit-Medium',
