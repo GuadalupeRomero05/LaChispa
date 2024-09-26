@@ -1,4 +1,3 @@
-
 export const SelectCursosList = [
     {
         "id": 1,
