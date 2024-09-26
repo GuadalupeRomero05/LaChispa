@@ -15,7 +15,7 @@ export default function Fecha() {
 
     return (
         <View style={styles.mainContainer}>
-           <TouchableOpacity style={styles(isSmallScreen).backButton}onPress={() => NavigationPreloadManager.goBack()}>
+           <TouchableOpacity style={styles.backButton}onPress={() => NavigationPreloadManager.goBack()}>
             <AntDesign name="back" size={24} color="black"/>
             </TouchableOpacity> 
             <View style={styles.container}>
@@ -30,8 +30,8 @@ export default function Fecha() {
     );
 }
 
-    const styles = (isSmallScreen: boolean) => StyleSheet.create({
-    mainContainer: {
+    const styles = StyleSheet.create({
+        mainContainer: {
         padding: 25,
         paddingTop: 10,
         backgroundColor: '#f0f8ff',

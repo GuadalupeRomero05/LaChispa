@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Dimensions, TouchableOpacity } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { Picker } from '@react-native-picker/picker';
-import { auth } from '@/config/FirebaseConfig'; 
-import { createUserWithEmailAndPassword } from 'firebase/auth'; 
-import { getFirestore, doc, setDoc } from 'firebase/firestore'; 
-import { useNavigation } from '@react-navigation/native'; 
+import { auth } from '@/config/FirebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './types.js'; // Importa el tipo que definimos anteriormente
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const firestore = getFirestore();
 
@@ -19,7 +20,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('1');
     const [error, setError] = useState('');
-    
+
     const navigation = useNavigation<SignupScreenNavigationProp>(); // Usa el tipo de navegación adecuado
 
     const submitHandler = async () => {
@@ -42,7 +43,10 @@ const Signup = () => {
 
     return (
         <View style={styles(isSmallScreen).mainContainer}>
-            <Text style={styles(isSmallScreen).title}>Registrar un nuevo usuario</Text>
+            <TouchableOpacity style={styles(isSmallScreen).backButton} onPress={() => navigation.goBack()}>
+                <AntDesign name="back" size={24} color="black" />
+            </TouchableOpacity>
+            <Text style={styles(isSmallScreen).title}>Registra Usuario</Text>
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
@@ -57,7 +61,7 @@ const Signup = () => {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            <Text style={styles(isSmallScreen).label}>Seleccione que tipo de usuario desea registrar</Text>
+            <Text style={styles(isSmallScreen).label}>Selecciona el Perfil</Text>
             <Picker
                 selectedValue={rol}
                 style={styles(isSmallScreen).input}
@@ -73,7 +77,7 @@ const Signup = () => {
                 style={styles(isSmallScreen).button}
                 onPress={submitHandler}
             >
-                <Text style={styles(isSmallScreen).buttonText}>Registrar</Text>
+                <Text style={styles(isSmallScreen).buttonText}>Registro</Text>
             </TouchableOpacity>
         </View>
     );
@@ -86,6 +90,12 @@ const styles = (isSmallScreen: boolean) => StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#f0f8ff",
         padding: isSmallScreen ? 16 : 32,
+    },
+    backButton: {
+        position: "absolute",
+        left: 20, // Coloca el botón a la izquierda
+        top: 16,
+        zIndex: 1, // Asegúrate de que el botón esté en la parte superior
     },
     title: {
         fontFamily: 'outfit-Medium',
@@ -109,7 +119,7 @@ const styles = (isSmallScreen: boolean) => StyleSheet.create({
     button: {
         paddingVertical: 12,
         paddingHorizontal: 32,
-        backgroundColor: Colors.PRIMARY,
+        backgroundColor: 'blue',
         borderRadius: 15,
         marginTop: 20,
     },
