@@ -113,7 +113,7 @@ const handleCursos = () => {
         </View>
 
         {/* Título */}
-        <Text style={[styles.title, { fontSize: isSmallScreen ? 24 : 32 }]}>Años</Text>
+        <Text style={[styles.title, { fontSize: isSmallScreen ? 30 : 40 }]}>Años</Text>
       
 
         {/* Lista de opciones */}
