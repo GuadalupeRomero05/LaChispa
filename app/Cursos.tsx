@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 const isSmallScreen = width < 600;
 
 // Definir el tipo de navegación para esta pantalla
-type SignupScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Signup'>;
+type SignupScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Cursos'>;
 
 export default function Cursos() {
     const [selectedYear, setSelectedYear] = useState<string | null>(null);

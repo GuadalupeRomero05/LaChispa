@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     maxWidth: '90%',
     width: 300,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f0f8ff',
   },
   continueButton: {
     paddingVertical: 10,
