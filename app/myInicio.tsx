@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, Dimensions } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, NavigationProp, ParamListBase } from '@react-navigation/native';
-import { CreateSchoolContext } from './../context/CreateSchoolContext';
-import { SelectCursosList } from './../constants/Options';
-import OptionCard from './../components/CreateSchool/OptionCard';
+import { CreateSchoolContext } from '../context/CreateSchoolContext';
+import { SelectCursosList } from '../constants/Options';
+import OptionCard from '../components/CreateSchool/OptionCard';
 import { Colors } from '@/constants/Colors';
 import { Menu, Provider, Divider } from 'react-native-paper';
 import { signOut } from 'firebase/auth';
@@ -113,7 +113,7 @@ const handleCursos = () => {
         </View>
 
         {/* Título */}
-        <Text style={[styles.title, { fontSize: isSmallScreen ? 24 : 32 }]}>Años</Text>
+        <Text style={[styles.title, { fontSize: isSmallScreen ? 30 : 40 }]}>Años</Text>
       
 
         {/* Lista de opciones */}
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     maxWidth: '90%',
     width: 300,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f0f8ff',
   },
   continueButton: {
     paddingVertical: 10,

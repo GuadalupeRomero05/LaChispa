@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Text, TextInput, View, Alert, ToastAndroid, Dimensions, Image, TouchableOpacity } from "react-native";
-import { auth } from './../config/FirebaseConfig'; // Asegúrate de ajustar la ruta si es necesario
+import { auth } from '../config/FirebaseConfig'; // Asegúrate de ajustar la ruta si es necesario
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Importamos Firestore para obtener el rol
 import { useRouter } from "expo-router";
-import { Colors } from "@/constants/Colors";
 
 export default function Index() {
   const router = useRouter();
