@@ -10,7 +10,7 @@ export default function Fecha() {
     // Función para manejar el cambio de fecha
     const onDateChange = (date) => {
         setSelectedDate(date); // Guarda la fecha seleccionada en el estado
-        console.log('Fecha seleccionada: ', date); // Puedes manejar la fecha seleccionada aquí
+        console.log('Fecha seleccionada: ', date); // podes manejar la fecha seleccionada aquí
     };
 
     return (
