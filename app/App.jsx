@@ -15,7 +15,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "INICIO DE SESION",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
                 <Stack.Screen name="MyInicio" component={MyInicio} 
@@ -23,7 +24,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "Directivos",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
                 <Stack.Screen name="ProfesorInicio" component={ProfesorInicio} 
