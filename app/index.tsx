@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, TextInput, View, Alert, ToastAndroid, Dimensions, Image, TouchableOpacity } from "react-native";
+import { Text, TextInput, View, Alert, ToastAndroid, Dimensions, Image, TouchableOpacity, Pressable } from "react-native";
 import { auth } from '../config/FirebaseConfig'; // Asegúrate de ajustar la ruta si es necesario
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Importamos Firestore para obtener el rol
@@ -111,18 +111,18 @@ export default function Index() {
         secureTextEntry
       />
 
-      <TouchableOpacity
-        style={{
-          paddingVertical: 12,
-          paddingHorizontal: 32,
-          backgroundColor: '#5f9ea0',
-          borderRadius: 15,
-          marginTop: 20,
-        }}
-        onPress={handleSignIn}
-      >
-        <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión</Text>
-      </TouchableOpacity>
+<Pressable
+  style={{
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    backgroundColor: '#5f9ea0',
+    borderRadius: 15,
+    marginTop: 20,
+  }}
+  onPress={handleSignIn}
+>
+  <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión</Text>
+</Pressable>
     </View>
   );
 }
