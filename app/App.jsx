@@ -13,7 +13,7 @@ export default function App() {
                 <Stack.Screen name="Index" component={Index} 
                 options={{
                 headerTitleAlign:'center',
-                title: "INICIO DE SESION",
+                name: "INICIO DE SESION",
                 headerTintColor: "white",
                 headerStyle: {backgroundColor:"#5f9ea0"},
                 headerLeft: () => null
@@ -22,7 +22,7 @@ export default function App() {
                 <Stack.Screen name="MyInicio" component={MyInicio} 
                 options={{
                 headerTitleAlign:'center',
-                title: "Directivos",
+                name: "Directivos",
                 headerTintColor: "white",
                 headerStyle: {backgroundColor:"#5f9ea0"},
                 headerLeft: () => null

@@ -111,18 +111,18 @@ export default function Index() {
         secureTextEntry
       />
 
-<Pressable
-  style={{
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    backgroundColor: '#5f9ea0',
-    borderRadius: 15,
-    marginTop: 20,
-  }}
-  onPress={handleSignIn}
->
-  <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión</Text>
-</Pressable>
+      <TouchableOpacity
+      style={{
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        backgroundColor: '#5f9ea0',
+        borderRadius: 15,
+        marginTop: 20,
+     }}
+      onPress={handleSignIn}
+      >
+    <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión</Text>
+    </TouchableOpacity>
     </View>
   );
 }
