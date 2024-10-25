@@ -15,7 +15,7 @@ export default function Index() {
 
   const { width } = Dimensions.get('window');
   const isSmallScreen = width < 600;
-
+ /* //iniciar sesion con google
   const InicioGoogle = async (e: any) => {
     e.preventDefault();
     try {
@@ -42,7 +42,7 @@ export default function Index() {
       console.error('Error al iniciar sesión:', error);
       // Mostrar un mensaje de error al usuario
     }
-  };
+  };*/
   //Iniciar sesion con Gmail y Contraseña
   const handleSignIn = () => {
     if (!email || !password) {
@@ -154,7 +154,7 @@ export default function Index() {
       >
     <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión</Text>
     </TouchableOpacity>
-    <TouchableOpacity
+    {/*<TouchableOpacity
       style={{
         paddingVertical: 12,
         paddingHorizontal: 32,
@@ -165,7 +165,7 @@ export default function Index() {
       onPress={InicioGoogle}
       >
     <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión con Google</Text>
-    </TouchableOpacity>
+    </TouchableOpacity>*/}
     </View>
   );
 }
