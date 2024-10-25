@@ -74,6 +74,19 @@ const handleCursos = () => {
     }
   };
 
+  // Evitar que el usuario utilice el botón de retroceso del navegador
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      // Aquí decides qué hacer cuando el usuario intenta retroceder
+      alert("No puedes volver atrás en esta página.");
+      window.history.pushState(null, "", window.location.href); // Evitar retroceso
+    };
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState); // Limpieza al desmontar el componente
+    };
+  }, []);
+
   return (
     <Provider>
       <View style={styles.container}>
