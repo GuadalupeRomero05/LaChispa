@@ -36,6 +36,22 @@ export default function App() {
                 headerStyle: {backgroundColor:"#5f9ea0"}
                 }
                 } />
+                <Stack.Screen name="AlumnoInicio" component={AlumnoInicio} 
+                options={{
+                headerTitleAlign:'center',
+                title: "Alumno",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
+                <Stack.Screen name="PreceptorInicio" component={PreceptorInicio} 
+                options={{
+                headerTitleAlign:'center',
+                title: "Preceptor",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
             </Stack.Navigator>
         </NavigationContainer>
     );
