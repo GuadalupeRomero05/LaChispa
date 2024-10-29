@@ -3,6 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import Index from './index';
 import MyInicio from './myInicio';
 import ProfesorInicio from './ProfesorInicio';
+import PreceptorInicio from './PreceptorInicio';
+import AlumnoInicio from './AlumnoInicio';
+import CambioContra from './CambioContra';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +48,14 @@ export default function App() {
                 }
                 } />
                 <Stack.Screen name="PreceptorInicio" component={PreceptorInicio} 
+                options={{
+                headerTitleAlign:'center',
+                title: "Preceptor",
+                headerTintColor: "white",
+                headerStyle: {backgroundColor:"#5f9ea0"}
+                }
+                } />
+                <Stack.Screen name="CambioContra" component={CambioContra} 
                 options={{
                 headerTitleAlign:'center',
                 title: "Preceptor",

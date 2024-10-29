@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, TextInput, View, Alert, ToastAndroid, Dimensions, Image, TouchableOpacity, Pressable } from "react-native";
 import { auth } from '../config/FirebaseConfig'; // Asegúrate de ajustar la ruta si es necesario
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Importamos Firestore para obtener el rol
 import { useRouter } from "expo-router";
 const provider = new GoogleAuthProvider(); //Provedor de google
@@ -15,6 +15,20 @@ export default function Index() {
 
   const { width } = Dimensions.get('window');
   const isSmallScreen = width < 600;
+  //Recuperar contraseña
+  const handlePasswordReset = async () => {
+    if (!email) {
+      Alert.alert("Error", "Por favor ingresa tu correo electrónico.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      Alert.alert("Éxito", "Se ha enviado un correo para restablecer la contraseña.");
+    } catch (error: any) {
+      Alert.alert("Error", error.message || "Hubo un problema. Intenta de nuevo.");
+    }
+  };
+
   //iniciar sesion con google
   const InicioGoogle = async (e: any) => {
     e.preventDefault();
@@ -166,6 +180,19 @@ export default function Index() {
       >
     <Text style={{ color: "#fff", fontSize: 16 }}>Iniciar Sesión con Google</Text>
     </TouchableOpacity>
+    <TouchableOpacity
+      style={{
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        backgroundColor: '#5f9ea0',
+        borderRadius: 15,
+        marginTop: 20,
+     }}
+      onPress={handlePasswordReset}
+      >
+    <Text style={{ color: "#fff", fontSize: 16 }}>Recuperar Contraseña</Text>
+    </TouchableOpacity>
+    
     </View>
   );
 }
