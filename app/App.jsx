@@ -36,7 +36,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "Profesor",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
                 <Stack.Screen name="AlumnoInicio" component={AlumnoInicio} 
@@ -44,7 +45,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "Alumno",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
                 <Stack.Screen name="PreceptorInicio" component={PreceptorInicio} 
@@ -52,7 +54,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "Preceptor",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
                 <Stack.Screen name="CambioContra" component={CambioContra} 
@@ -60,7 +63,8 @@ export default function App() {
                 headerTitleAlign:'center',
                 title: "Preceptor",
                 headerTintColor: "white",
-                headerStyle: {backgroundColor:"#5f9ea0"}
+                headerStyle: {backgroundColor:"#5f9ea0"},
+                headerLeft: () => null
                 }
                 } />
             </Stack.Navigator>

@@ -7,3 +7,4 @@ function PreceptorInicio() {
 }
 
 export default PreceptorInicio
+
