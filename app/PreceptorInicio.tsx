@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, Dimensions } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
@@ -192,3 +193,15 @@ const styles = StyleSheet.create({
   },
 });
 
+=======
+import React from 'react'
+
+function PreceptorInicio() {
+    return (
+        <div>PreceptorInicio</div>
+    )
+}
+
+export default PreceptorInicio
+
+>>>>>>> d4626b2489b3344c2b8f02bbf93f1c8e65328955
