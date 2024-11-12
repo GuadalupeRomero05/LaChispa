@@ -59,9 +59,7 @@ export default function MyInicio() {
   };
 
 
-const handleCursos = () => {
-  navigation.navigate('Cursos');
-}
+
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -90,8 +88,7 @@ const handleCursos = () => {
             >
               
               <Divider />
-              <Menu.Item onPress={handleCursos} title="Agrega Cursos a cargo" />
-              <Divider/>
+              
               <Menu.Item onPress={handleSignOut} title="Cerrar sesión" />
             </Menu>
 
