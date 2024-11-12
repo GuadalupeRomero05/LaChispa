@@ -161,18 +161,17 @@ const styles = StyleSheet.create({
   },
   optionButton: {
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20, // Ajusta el padding horizontal para controlar el espacio alrededor del texto
     borderRadius: 12,
     marginTop: 20,
     alignItems: 'center',
     alignSelf: 'center',
-    maxWidth: '90%',
-    width: 300,
     backgroundColor: '#f0f8ff',
-  },
+    maxWidth: '100%', // Opcional: asegura que el ancho no exceda el contenedor
+},
   continueButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 35,
     backgroundColor: Colors.PRIMARY,
     borderRadius: 12,
     marginTop: 20,
