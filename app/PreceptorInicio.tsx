@@ -107,7 +107,6 @@ export default function PreceptorInicio() {
 
         {/* Título */}
         <Text style={[styles.title, { fontSize: isSmallScreen ? 24 : 32 }]}>Años a cargo </Text>
-      
 
         {/* Lista de opciones */}
         <FlatList
