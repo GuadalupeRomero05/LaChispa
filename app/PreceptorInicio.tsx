@@ -131,7 +131,6 @@ export default function MyInicio() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
