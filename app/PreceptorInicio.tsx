@@ -17,7 +17,6 @@ interface Option {
   icon: string;
 }
 
-
 export default function MyInicio() {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const [menuVisible, setMenuVisible] = useState(false);
@@ -131,6 +130,7 @@ export default function MyInicio() {
     </Provider>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
