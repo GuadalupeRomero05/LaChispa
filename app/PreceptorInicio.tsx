@@ -118,6 +118,15 @@ export default function PreceptorInicio() {
           )}
           keyExtractor={(item) => item.id.toString()}
         />
+        <FlatList
+          data={SelectCursosList}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => setSelectedOption(item)} style={styles.optionButton}>
+              <OptionCard option={item} selectedOption={selectedOption} />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.id.toString()}
+        />
 
         {/* Botón de continuar */}
         <TouchableOpacity onPress={handleContinue} style={styles.continueButton}>
