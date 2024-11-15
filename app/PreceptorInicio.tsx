@@ -185,6 +185,17 @@ const styles = StyleSheet.create({
     width: 300,
     backgroundColor: '#f0f0f0',
   },
+  optionButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    marginTop: 20,
+    alignItems: 'center',
+    alignSelf: 'center',
+    maxWidth: '90%',
+    width: 300,
+    backgroundColor: '#f0f0f0',
+  },
   continueButton: {
     paddingVertical: 10,
     paddingHorizontal: 20,
