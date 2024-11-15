@@ -123,6 +123,7 @@ export default function PreceptorInicio() {
         <TouchableOpacity onPress={handleContinue} style={styles.continueButton}>
           <Text style={styles.continueButtonText}>Continuar</Text>
         </TouchableOpacity>
+        
       </View>
     </Provider>
   );
