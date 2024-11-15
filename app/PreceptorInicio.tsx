@@ -58,8 +58,6 @@ export default function PreceptorInicio() {
     navigation.navigate('select-dates');
   };
 
-
-
   const handleSignOut = async () => {
     try {
       await signOut(auth);
