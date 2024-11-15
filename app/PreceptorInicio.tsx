@@ -168,11 +168,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
   },
-  title: {
-    fontFamily: 'outfit-Bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
   subtitle: {
     fontFamily: 'outfit',
     fontSize: 8,
