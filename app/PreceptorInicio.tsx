@@ -127,6 +127,7 @@ export default function PreceptorInicio() {
       </View>
     </Provider>
   );
+
 }
 
 const styles = StyleSheet.create({
