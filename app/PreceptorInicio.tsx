@@ -158,6 +158,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
   rightIcons: {
     flexDirection: 'row',
     alignItems: 'center',
