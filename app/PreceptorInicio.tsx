@@ -16,7 +16,8 @@ interface Option {
   desc: string;
   icon: string;
 }
-export default function MyInicio() {
+
+export default function PreceptorInicio() {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const [menuVisible, setMenuVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
