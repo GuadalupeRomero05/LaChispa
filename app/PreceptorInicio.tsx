@@ -146,18 +146,6 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 20,
   },
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f8ff',
-    paddingTop: 50,
-    paddingHorizontal: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -168,6 +156,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+  iconButton: {
+    marginLeft: 20,
   },
   iconButton: {
     marginLeft: 20,
