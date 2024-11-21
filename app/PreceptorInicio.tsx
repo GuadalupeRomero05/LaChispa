@@ -160,9 +160,6 @@ const styles = StyleSheet.create({
   iconButton: {
     marginLeft: 20,
   },
-  iconButton: {
-    marginLeft: 20,
-  },
   title: {
     fontFamily: 'outfit-Bold',
     marginBottom: 20,
@@ -195,11 +192,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     maxWidth: '90%',
     width: 300,
-  },
-  continueButtonText: {
-    color: Colors.WHITE,
-    fontFamily: 'outfit-Bold',
-    fontSize: 16,
   },
   continueButtonText: {
     color: Colors.WHITE,
