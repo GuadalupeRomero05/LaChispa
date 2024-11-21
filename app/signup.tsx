@@ -54,6 +54,7 @@ const Signup = () => {
                 onChangeText={setEmail}
                 keyboardType="email-address"
             />
+
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Contraseña"
