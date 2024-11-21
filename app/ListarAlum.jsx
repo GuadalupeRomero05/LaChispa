@@ -80,7 +80,7 @@ export default function Listausers() {
     return (
         <View style={style.container}>
             <View style={style.form}>
-                <Text style={style.modificaruser}>LISTA DE Alumnos</Text>
+                <Text style={style.modificaruser}>Lista de Alumnos</Text>
                 <View style={style.scrollView}>
                     {users.map((user) => (
                         <View style={style.userContainer} key={user.id}>
