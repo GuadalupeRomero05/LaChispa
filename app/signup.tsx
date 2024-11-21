@@ -72,14 +72,7 @@ const Signup = () => {
                 secureTextEntry
                 keyboardType="numeric" 
             />
-            <TextInput
-                style={styles(isSmallScreen).input}
-                placeholder="DNI"
-                value={dni}
-                onChangeText={setDni}
-                secureTextEntry
-                keyboardType="numeric" 
-            />
+            
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
