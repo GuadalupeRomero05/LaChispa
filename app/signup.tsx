@@ -66,6 +66,13 @@ const Signup = () => {
             />
             <TextInput
                 style={styles(isSmallScreen).input}
+                placeholder="Apellido"
+                value={lastname}
+                onChangeText={setLastName}
+                secureTextEntry 
+            />
+            <TextInput
+                style={styles(isSmallScreen).input}
                 placeholder="DNI"
                 value={dni}
                 onChangeText={setDni}
