@@ -46,7 +46,7 @@ const Signup = () => {
             <TouchableOpacity style={styles(isSmallScreen).backButton} onPress={() => navigation.goBack()}>
                 <AntDesign name="back" size={24} color="black" />
             </TouchableOpacity>
-            <Text style={styles(isSmallScreen).title}>Registra Usuario</Text>
+            <Text style={styles(isSmallScreen).title}>Registrar Usuario</Text>
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
@@ -78,7 +78,7 @@ const Signup = () => {
                 style={styles(isSmallScreen).button}
                 onPress={submitHandler}
             >
-                <Text style={styles(isSmallScreen).buttonText}>Registro</Text>
+                <Text style={styles(isSmallScreen).buttonText}>Registrar</Text>
             </TouchableOpacity>
         </View>
     );
