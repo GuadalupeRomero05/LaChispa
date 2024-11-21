@@ -20,6 +20,9 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('1');
     const [error, setError] = useState('');
+    const [name, setName] = useState('');  
+    const [lastname, setLastName] = useState("");
+    const [dni, setDni] = useState(''); 
 
     const navigation = useNavigation<SignupScreenNavigationProp>(); // Usa el tipo de navegación adecuado
 
@@ -47,6 +50,36 @@ const Signup = () => {
                 <AntDesign name="back" size={24} color="black" />
             </TouchableOpacity>
             <Text style={styles(isSmallScreen).title}>Registrar Usuario</Text>
+            <TextInput
+                style={styles(isSmallScreen).input}
+                placeholder="Nombre"
+                value={name}
+                onChangeText={setName}
+                secureTextEntry
+            />
+            <TextInput
+                style={styles(isSmallScreen).input}
+                placeholder="Apellido"
+                value={lastname}
+                onChangeText={setLastName}
+                secureTextEntry 
+            />
+            <TextInput
+                style={styles(isSmallScreen).input}
+                placeholder="DNI"
+                value={dni}
+                onChangeText={setDni}
+                secureTextEntry
+                keyboardType="numeric" 
+            />
+            <TextInput
+                style={styles(isSmallScreen).input}
+                placeholder="DNI"
+                value={dni}
+                onChangeText={setDni}
+                secureTextEntry
+                keyboardType="numeric" 
+            />
             <TextInput
                 style={styles(isSmallScreen).input}
                 placeholder="Email"
