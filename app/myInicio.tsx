@@ -10,6 +10,7 @@ import { Menu, Provider, Divider } from 'react-native-paper';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/config/FirebaseConfig';
 
+
 interface Option {
   id: number;
   title: string;
@@ -64,6 +65,15 @@ export default function MyInicio() {
 const handleCursos = () => {
   navigation.navigate('Cursos');
 }
+const handlePrece = () => {
+  navigation.navigate('ListarPrece');
+}
+const handleProfe = () => {
+  navigation.navigate('ListarProfe');
+}
+const handleAlum = () => {
+  navigation.navigate('ListarAlum');
+}
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -95,6 +105,12 @@ const handleCursos = () => {
               <Divider />
               <Menu.Item onPress={handleCursos} title="Crear Cursos" />
               <Divider/>
+              <Menu.Item onPress={handlePrece} title="Listar Preceptores" />
+              <Divider />
+              <Menu.Item onPress={handleProfe} title="Listar Profesores" />
+              <Divider />
+              <Menu.Item onPress={handleAlum} title="Listar Alumnos" />
+              <Divider />
               <Menu.Item onPress={handleSignOut} title="Cerrar sesión" />
             </Menu>
 
