@@ -66,10 +66,11 @@ const Signup = () => {
             />
             <TextInput
                 style={styles(isSmallScreen).input}
-                placeholder="Apellido"
-                value={lastname}
-                onChangeText={setLastName}
-                secureTextEntry 
+                placeholder="DNI"
+                value={dni}
+                onChangeText={setDni}
+                secureTextEntry
+                keyboardType="numeric" 
             />
             <TextInput
                 style={styles(isSmallScreen).input}
