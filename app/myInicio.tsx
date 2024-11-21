@@ -105,11 +105,11 @@ const handleAlum = () => {
               <Divider />
               <Menu.Item onPress={handleCursos} title="Crear Cursos" />
               <Divider/>
-              <Menu.Item onPress={handlePrece} title="Modificar Preceptores" />
+              <Menu.Item onPress={handlePrece} title="Listar Preceptores" />
               <Divider />
-              <Menu.Item onPress={handleProfe} title="Modificar Profesores" />
+              <Menu.Item onPress={handleProfe} title="Listar Profesores" />
               <Divider />
-              <Menu.Item onPress={handleAlum} title="Modificar Alumnos" />
+              <Menu.Item onPress={handleAlum} title="Listar Alumnos" />
               <Divider />
               <Menu.Item onPress={handleSignOut} title="Cerrar sesión" />
             </Menu>
